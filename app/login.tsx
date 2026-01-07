@@ -28,18 +28,6 @@ export default function login() {
              dispatch(setAppUser(formLogin));
     }
 
-    // useEffect(() => {
-    //     console.log('Current segments:', segments);
-    // }, [segments]);
-    
-    useEffect(() => {
-        console.log('currentUser:', currentUser);
-    }, [currentUser]);
-
-    useEffect(() => {
-        console.log('formLogin:', formLogin);
-    }, [formLogin]);
-
     return (
         <SafeAreaView style={{ flex: 1 , padding: 0 , margin : 0}}>
             <ThemedView style={{ flex: 1, padding: 10, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>

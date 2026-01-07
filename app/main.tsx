@@ -6,6 +6,8 @@ import 'react-native-reanimated';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Ionicons } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native';
 import { AppDispatch, RootState } from './store';
 
 export default function main() {
@@ -37,7 +39,21 @@ export default function main() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack initialRouteName='login'>
           <Stack.Screen name="login" options={{ headerShown: false }} />
-          <Stack.Screen name="register" options={{ headerShown: false }} />
+          <Stack.Screen 
+            name="register" 
+            options={{ 
+              headerShown: true,
+              title: 'Registrazione',
+              headerLeft: () => (
+                <TouchableOpacity 
+                  onPress={() => router.replace('/login')}
+                  style={{ marginLeft: 10 }}
+                >
+                  <Ionicons name="arrow-back" size={24} color={colorScheme === 'dark' ? '#fff' : '#000'} />
+                </TouchableOpacity>
+              )
+            }} 
+          />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
         </Stack>
